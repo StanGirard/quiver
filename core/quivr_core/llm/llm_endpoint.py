@@ -41,7 +41,7 @@ class LLMEndpoint:
                 self.tokenizer = AutoTokenizer.from_pretrained(llm_config.tokenizer_hub)
             except OSError:  # if we don't manage to connect to huggingface and/or no cached models are present
                 logger.warning(
-                    f"Cannot acces the configured tokenizer from {llm_config.tokenizer_hub}, using the default tokenizer {llm_config.fallback_tokenizer}"
+                    f"Cannot access the configured tokenizer from {llm_config.tokenizer_hub}, using the default tokenizer {llm_config.fallback_tokenizer}"
                 )
                 self.tokenizer = tiktoken.get_encoding(llm_config.fallback_tokenizer)
         else:

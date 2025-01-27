@@ -29,7 +29,7 @@ def model_supports_function_calling(model_name: str):
     return model_name not in models_not_supporting_function_calls
 
 
-def format_history_to_openai_mesages(
+def format_history_to_openai_messages(
     tuple_history: List[Tuple[str, str]], system_message: str, question: str
 ) -> List[BaseMessage]:
     """Format the chat history into a list of Base Messages"""
