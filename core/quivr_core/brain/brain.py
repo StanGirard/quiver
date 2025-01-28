@@ -530,6 +530,8 @@ class Brain:
         if rag_pipeline is None:
             rag_pipeline = QuivrQARAGLangGraph
 
+        logger.info(f"LLLL Using vector db : {self.vector_db}")
+
         rag_instance = rag_pipeline(
             retrieval_config=retrieval_config, llm=llm, vector_store=self.vector_db
         )
