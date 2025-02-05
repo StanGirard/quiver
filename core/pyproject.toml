@@ -61,7 +61,6 @@ markers = [
     "slow: marks tests as slow (deselect with '-m \"not slow\"')",
     "base: these tests require quivr-core with extra `base` to be installed",
     "tika: these tests require a tika server to be running",
-    "unstructured: these tests require `unstructured` dependency",
 ]
 
 [[tool.mypy.overrides]]

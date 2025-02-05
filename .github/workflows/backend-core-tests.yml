@@ -39,6 +39,5 @@ jobs:
           OPENAI_API_KEY: this-is-a-test-key
         run: |
           sudo apt-get update
-          sudo apt-get install -y libmagic-dev poppler-utils libreoffice tesseract-ocr  pandoc
           cd core
           rye test -p quivr-core

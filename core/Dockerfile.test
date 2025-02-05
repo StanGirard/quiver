@@ -4,25 +4,15 @@ FROM python:3.11.6-slim-bullseye
 # Install GEOS library, Rust, and other dependencies, then clean up
 RUN apt-get clean && apt-get update && apt-get install -y \
     curl \
-    gcc \
-    autoconf \
-    automake \
     build-essential \
-    # Additional dependencies for document handling
-    libmagic-dev \
-    tesseract-ocr \
-    poppler-utils \
-    libreoffice \
-    pandoc && \
-    rm -rf /var/lib/apt/lists/*
-
+    libgeos-dev \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 # Set the working directory
 WORKDIR /code
 
-# Install Poetry
-RUN curl -sSL https://install.python-poetry.org | POETRY_HOME=/opt/poetry python && \
+RUN curl -sSL https://install.python-poetry.org | python3 - && \
     cd /usr/local/bin && \
-    ln -s /opt/poetry/bin/poetry && \
+    ln -s /root/.local/bin/poetry && \
     poetry config virtualenvs.create false
 
 # Add Poetry to PATH
