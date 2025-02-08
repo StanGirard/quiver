@@ -1,0 +1,40 @@
+ingestion_config:
+  parser_config:
+    megaparse_config:
+      strategy: "fast"
+      pdf_parser: "unstructured"
+    splitter_config:
+      chunk_size: 400
+      chunk_overlap: 100
+
+
+retrieval_config:
+  workflow_config:
+    name: "Summarizer"
+    available_tools:
+    - "Summarization"
+    nodes:
+      - name: "START"
+        edges: ["retrieve_all_chunks_from_file"]
+
+      - name: "retrieve_all_chunks_from_file"
+        edges: ["tool"]
+      
+      - name: "run_tool"
+        edges: ["END"]
+
+  llm_config:
+    # The LLM supplier to use
+    supplier: "openai"
+
+    # The model to use for the LLM for the given supplier
+    model: "gpt-3.5-turbo-0125"
+
+    max_context_tokens: 2000
+
+    # Maximum number of tokens to pass to the LLM
+    # as a context to generate the answer
+    max_output_tokens: 2000
+
+    temperature: 0.7
+    streaming: true

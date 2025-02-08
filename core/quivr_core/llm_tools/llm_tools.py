@@ -1,23 +1,26 @@
-from typing import Dict, Any, Type, Union
+from typing import Any, Dict, Type, Union
 
 from quivr_core.llm_tools.entity import ToolWrapper
-
+from quivr_core.llm_tools.other_tools import (
+    OtherTools,
+)
+from quivr_core.llm_tools.summarization_tool import (
+    SummarizationTools,
+)
 from quivr_core.llm_tools.web_search_tools import (
     WebSearchTools,
 )
 
-from quivr_core.llm_tools.other_tools import (
-    OtherTools,
-)
-
 TOOLS_CATEGORIES = {
     WebSearchTools.name: WebSearchTools,
+    SummarizationTools.name: SummarizationTools,
     OtherTools.name: OtherTools,
 }
 
 # Register all ToolsList enums
 TOOLS_LISTS = {
     **{tool.value: tool for tool in WebSearchTools.tools},
+    **{tool.value: tool for tool in SummarizationTools.tools},
     **{tool.value: tool for tool in OtherTools.tools},
 }
 
