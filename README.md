@@ -219,3 +219,9 @@ This project would not be possible without the support of our partners. Thank yo
 ## License 📄
 
 This project is licensed under the Apache 2.0 License - see the [LICENSE](LICENSE) file for details
+
+---
+
+<h3 align="center">Show some ❤ by <img src="https://imgur.com/o7ncZFp.jpg" height=25px width=25px> this repository!</h3>
+
+
